@@ -30,5 +30,4 @@ class MyCalTime extends CalTime {
         for (int i = 1; i < 100; i++) sum += i;
         System.out.println(sum);
     }
-
 }

@@ -15,6 +15,7 @@ public class ComparatorTest {
         students[3] = new Student("Justin", 32, 87);
         students[4] = new Student("Blake", 45, 92);
         Arrays.sort(students, comparator);
+        Arrays.sort(students);
     }
     
 }
@@ -35,7 +36,7 @@ class AgeComparator implements Comparator {
 }
 
 
-class Student {
+class Student implements Comparable {
     private String name;
     private int age;
     private int score;
@@ -72,4 +73,9 @@ class Student {
         this.score = score;
     }
 
+    @Override
+    public int compareTo(Object o) {
+        Student other = (Student) o;
+        return this.getScore() - other.getScore();
+    }
 }
