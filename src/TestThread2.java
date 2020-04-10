@@ -2,9 +2,9 @@ public class TestThread2 {
     public static void main(String[] args) {
         System.out.println("Hello Thread!");
 
-        //继承Thread类的线程开启
-//        MyThread thread = new MyThread();
-//        thread.start();
+        // 继承Thread类的线程开启
+        MyThread thread = new MyThread();
+        thread.start();
 
         //实现Runnable类的线程开启
         MyRunnable runnableThread = new MyRunnable();
@@ -37,10 +37,5 @@ class MyRunnable implements Runnable {
     @Override
     public void run() {
         for (int i = 1; i < 10; i++) System.out.println("runnable thread:" + i);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }
