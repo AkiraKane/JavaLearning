@@ -3,6 +3,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import javax.sound.sampled.SourceDataLine;
+
 public class GenericTest {
     public static void main(String[] args) {
         // public static <T> List<T> asList(T... a)
@@ -38,4 +40,17 @@ public class GenericTest {
         System.out.println("END");
         
     }
+
+    // Object可以接受任意类型对象，但不代表Collection<Object>可以接受任意泛型实参的集合。
+    // 泛型没有多态
+    // Collection是一个泛型接口 Collection<E>
+    // 所以要用？代表任意类型，因为不知道被遍历的集合的元素的类型是什么
+    public void print(Collection<?> c) {
+        for (Object o: c) System.out.println(o);
+    }
+
+    public void printNum(Collection<? extends Number> c) {}
+
+    public <T> void copy(Collection<T> src, Collection<? super T> dest) {}
+
 }
